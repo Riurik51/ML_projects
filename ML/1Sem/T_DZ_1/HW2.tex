@@ -1,0 +1,112 @@
+\documentclass[12pt,a4paper,oneside]{scrartcl}
+\binoppenalty=1000
+\relpenalty=1000
+\usepackage[unicode, pdftex,pdfborder=0 0 0,colorlinks, linkcolor=black]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\begin{document}
+
+\title{Домашняя работа №2}
+\author{Проничкин Юрий}
+\maketitle
+
+\section{Задание}
+\subsection{}
+
+$$f(x) = (c^{\intercal}x)^2$$
+
+По свойству дифференцирования 8:
+
+$$f^{'}(x) = 2(c^{\intercal}x)^{'}$$
+
+3-я стандартная производная:
+
+$$f^{'}(x) = 2c$$
+
+\subsection{}
+
+$$h(x) = x^{\intercal}A[x]^2  [x]^2 = (x_1^2, \dots ,x_n^2)^{\intercal}$$
+
+Воспользуемся свойством 6 для $ f(x) = x, g(x) = A[x]^2$:
+
+$$J_f = E$$
+
+$$A[x]^2 = \begin{pmatrix}
+a_{11}x_1^2 + a_{12}x_2^2 + \ldots + a_{1n}x_n^2\\
+a_{21}x_1^2 + a_{22}x_2^2 + \ldots + a_{2n}x_n^2\\
+\vdots\\
+a_{n1}x_1^2 + a_{n2}x_2^2 + \ldots + a_{nn}x_n^2
+\end{pmatrix}$$
+
+Тогда, $$J_g = \begin{pmatrix}
+2a_{11}x_1 & 2a_{12}x_2 & \ldots & 2a_{1n}x_n\\
+2a_{21}x_1 & 2a_{22}x_2 & \ldots & 2a_{2n}x_n\\
+\vdots\\
+2a_{n1}x_1 & 2a_{n2}x_2 & \ldots & 2a_{nn}x_n
+\end{pmatrix}$$
+
+$$h^{'}(x) = Eg(x) + J_gf(x) = $$
+
+$$ = \begin{pmatrix}
+a_{11}x_1^2 + a_{12}x_2^2 + \ldots + a_{1n}x_n^2\\
+a_{21}x_1^2 + a_{22}x_2^2 + \ldots + a_{2n}x_n^2\\
+\vdots\\
+a_{n1}x_1^2 + a_{n2}x_2^2 + \ldots + a_{nn}x_n^2
+\end{pmatrix} + 2\begin{pmatrix}
+a_{11}x_1^2 + a_{12}x_2^2 + \ldots + a_{1n}x_n^2\\
+a_{21}x_1^2 + a_{22}x_2^2 + \ldots + a_{2n}x_n^2\\
+\vdots\\
+a_{n1}x_1^2 + a_{n2}x_2^2 + \ldots + a_{nn}x_n^2
+\end{pmatrix} = $$
+
+$$ = 3A[x]^2$$
+
+\subsection{}
+
+$$f(x) = \frac{-1}{1 + x^{\intercal}x}$$
+
+По свойству дифференцирования 8:
+
+$$f^{'} = \frac{1}{(1 + x^{\intercal}x)^2}(1 + x^{\intercal}x)^{'} = $$
+
+Из примера 2:
+
+$$ = \frac{2x}{(1 + x^{\intercal}x)^2}$$
+
+\subsection{}
+
+$$f(x) = log(1 + x^{\intercal}Ax)$$
+
+По свойству дифференцирования 8:
+
+$$f^{'} = \frac{1}{1 + x^{\intercal}Ax}(1 + x^{\intercal}Ax)^{'} = $$
+
+Из примера 3:
+
+$$ = \frac{(A + A^{\intercal})x}{1 + x^{\intercal}Ax}$$
+
+
+\section{Задание}
+
+
+$$KL(q||p) = - \int q(x)log(\frac{p(x)}{q(x)})dx$$
+
+Докажем , используя интегральное неравенство Йенсена (его можно доказать в предельном переходе 
+неравенства Йенсена $f(\alpha_1y_1 + \ldots + \alpha_ny_n) \geq \alpha_1f(y_1) + \ldots + \alpha_nf(y_n)$ для вогнутой $f(x)$ , где $\sum_{i=1}^n \alpha_i = 1$, где равенство достигается на $y_1 = \ldots y_n$):
+
+$$f(\int \alpha(x)y(x)dx) \geq \int \alpha(x) f(y(x))dx \int \alpha(x)dx = 1, \alpha(x) \geq 0$$
+Теперь положим $\alpha(x) = q(x) f(x) = log(x) y(x) = \frac{p(x)}{q(x)}$, тогда:
+
+$$ 0 = log(\int q(x) \frac{p(x)}{q(x)}) \geq \int q(x) log(\frac{p(x)}{q(x)}) = - KL(q||p)$$
+
+где равенство достигается при $y(x) = const$, т.е. $p(x) = q(x)$
+
+\section{Задание}
+
+Выборка временного ряда, использующаяся для прогнозирования среднемесячного расхода электричества, включает в себя только летние месяцы т.е. время с наибольшей продолжительностью дня и приходящееся на период отпусков, когда расход электричества меньше, т.е. очевидно не может использоваться для прогнозирования в осенние и зимние месяцы когда продолжительность дня будет меньше, а сотрудников в рабочее время больше. 
+\end{document}
