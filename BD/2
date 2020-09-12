@@ -1,0 +1,1 @@
+ssh -i .ssh/id_rsa -D localhost:1080 -N Riurik51@bigdatamasters.ml">Riurik51@bigdatamasters.ml
